@@ -3,7 +3,6 @@ import cors from 'cors';
 import taskRouter from './route/taskRoute.js';
 
 const app = express();
-const PORT = 3000;
 
 const allowedOrigins = [
   'http://localhost:5173',
@@ -11,7 +10,7 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -23,6 +22,8 @@ app.use(cors({
 app.use(express.json());
 app.use('/task', taskRouter);
 
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
