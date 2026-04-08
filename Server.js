@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import serverless from "serverless-http";
-import taskRouter from "../../route/taskRoute.js";
+import taskRouter from './routes/taskRoute.js';
 
 const app = express();
 
