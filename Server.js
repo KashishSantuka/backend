@@ -4,19 +4,13 @@ import taskRouter from './route/taskRoute.js';
 
 const app = express();
 
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://chimerical-maamoul-3d6a80.netlify.app'
-];
+// const allowedOrigins = [
+//   'http://localhost:5173',
+//   'https://chimerical-maamoul-3d6a80.netlify.app'
+// ];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
+  origin: "*"
 }));
 
 app.use(express.json());
